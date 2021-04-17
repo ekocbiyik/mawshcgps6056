@@ -1,0 +1,40 @@
+﻿<Window x:Class="CevreselAlgilayici.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CevreselAlgilayici"
+        mc:Ignorable="d"
+        Title="MAWS 6056 HCGPS" Height="435" Width="422.5">
+    <Canvas HorizontalAlignment="Left" Width="402" Margin="10,10,0,0" Height="395" VerticalAlignment="Top">
+        <Label Content="-2021- Bülent YİĞİT adına geliştirilmiştir." HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="20" FontSize="9" FontStyle="Italic" Width="382" HorizontalContentAlignment="Center" Canvas.Top="371" Canvas.Left="10" FontFamily="Times New Roman"/>
+        <GroupBox Header="Sensör Bilgileri" HorizontalAlignment="Left" Height="205" VerticalAlignment="Top" Width="382" Canvas.Left="10" Canvas.Top="10">
+            <Canvas Margin="0,0,129,99">
+                <Label x:Name="lblWindSpeed" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="100" Canvas.Top="10" Margin="0"/>
+                <Label x:Name="lblWindDirection" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="100" Canvas.Top="36"/>
+                <Label x:Name="lblAirTemperature" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="100" Canvas.Top="62"/>
+                <Label x:Name="lblBarometricPressure" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="100" Canvas.Top="88"/>
+                <Label x:Name="lblHumidity" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="100" Canvas.Top="114"/>
+                <Label x:Name="lblCompas" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="280" Canvas.Top="10"/>
+                <Label x:Name="lblLatitude" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="280" Canvas.Top="36"/>
+                <Label x:Name="lblLongtitude" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="280" Canvas.Top="62"/>
+                <Label x:Name="lblExternalTemp" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="280" Canvas.Top="88"/>
+                <Label Content="Rüzgar Hızı" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" BorderBrush="Black" BorderThickness="0" Canvas.Top="10" Canvas.Left="10"/>
+                <Label Content="Rüzgar Yönü" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="10" Canvas.Top="36"/>
+                <Label Content="Hava Sıcaklığı" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="10" Canvas.Top="62"/>
+                <Label Content="Basınç" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="10" Canvas.Top="88"/>
+                <Label Content="Nem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="10" Canvas.Top="114"/>
+                <Label Content="Pusula" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="190" Canvas.Top="10"/>
+                <Label Content="Enlem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="190" Canvas.Top="36"/>
+                <Label Content="Boylam" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="190" Canvas.Top="62"/>
+                <Label Content="Harici Sıcaklık" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Top="88" Canvas.Left="190" VerticalContentAlignment="Center"/>
+            </Canvas>
+        </GroupBox>
+        <ScrollViewer x:Name="logScroll" Height="147" Canvas.Top="219" Width="382" CanContentScroll="True" Canvas.Left="10">
+            <TextBlock x:Name="txtLogs" TextWrapping="Wrap" Width="369" Background="#FFF6F6F6" />
+        </ScrollViewer>
+        <Button x:Name="btnConnect" Content="Bağlan" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Height="24" Click="btnConnect_Click" Canvas.Left="310" Canvas.Top="180"/>
+        <TextBox x:Name="txtTargetIp" HorizontalAlignment="Left" Height="24" Width="100" Text="192.168.1.22" TextAlignment="Left" Canvas.Left="153" Canvas.Top="180" VerticalAlignment="Top" MaxLines="1" VerticalContentAlignment="Center" Margin="0"/>
+        <TextBox x:Name="txtTargetPort" HorizontalAlignment="Left" Height="24" Width="47" Text="1234" TextAlignment="Left" Canvas.Left="258" Canvas.Top="180" VerticalAlignment="Top" VerticalContentAlignment="Center" MaxLines="1"/>
+    </Canvas>
+</Window>
