@@ -109,7 +109,7 @@ namespace CevreselAlgilayici
                 bool isEnable = false;
                 while (!isEnable)
                 {
-                    Thread.Sleep(3000);
+                    Thread.Sleep(1000);
                     this.Dispatcher.Invoke(() =>
                     {
                         lblWindSpeed.Content = infoMap[lblWindSpeed.Name];

@@ -1,0 +1,14 @@
+D:\Workspace\CevreselAlgilayici\bin\Release\CevreselAlgilayici.exe.config
+D:\Workspace\CevreselAlgilayici\bin\Release\CevreselAlgilayici.exe
+D:\Workspace\CevreselAlgilayici\bin\Release\CevreselAlgilayici.pdb
+D:\Workspace\CevreselAlgilayici\obj\Release\MainWindow.g.cs
+D:\Workspace\CevreselAlgilayici\obj\Release\App.g.cs
+D:\Workspace\CevreselAlgilayici\obj\Release\CevreselAlgilayici_MarkupCompile.cache
+D:\Workspace\CevreselAlgilayici\obj\Release\CevreselAlgilayici_MarkupCompile.lref
+D:\Workspace\CevreselAlgilayici\obj\Release\MainWindow.baml
+D:\Workspace\CevreselAlgilayici\obj\Release\CevreselAlgilayici.g.resources
+D:\Workspace\CevreselAlgilayici\obj\Release\CevreselAlgilayici.Properties.Resources.resources
+D:\Workspace\CevreselAlgilayici\obj\Release\CevreselAlgilayici.csproj.GenerateResource.cache
+D:\Workspace\CevreselAlgilayici\obj\Release\CevreselAlgilayici.csproj.CoreCompileInputs.cache
+D:\Workspace\CevreselAlgilayici\obj\Release\CevreselAlgilayici.exe
+D:\Workspace\CevreselAlgilayici\obj\Release\CevreselAlgilayici.pdb
