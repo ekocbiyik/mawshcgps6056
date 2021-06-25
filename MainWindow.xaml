@@ -5,36 +5,225 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CevreselAlgilayici"
         mc:Ignorable="d"
-        Title="MAWS 6056 HCGPS" Height="435" Width="422.5">
-    <Canvas HorizontalAlignment="Left" Width="402" Margin="10,10,0,0" Height="395" VerticalAlignment="Top">
-        <Label Content="-2021- Bülent YİĞİT adına geliştirilmiştir." HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="20" FontSize="9" FontStyle="Italic" Width="382" HorizontalContentAlignment="Center" Canvas.Top="371" Canvas.Left="10" FontFamily="Times New Roman"/>
-        <GroupBox Header="Sensör Bilgileri" HorizontalAlignment="Left" Height="205" VerticalAlignment="Top" Width="382" Canvas.Left="10" Canvas.Top="10">
-            <Canvas Margin="0,0,129,99">
-                <Label x:Name="lblWindSpeed" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="100" Canvas.Top="10" Margin="0"/>
-                <Label x:Name="lblWindDirection" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="100" Canvas.Top="36"/>
-                <Label x:Name="lblAirTemperature" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="100" Canvas.Top="62"/>
-                <Label x:Name="lblBarometricPressure" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="100" Canvas.Top="88"/>
-                <Label x:Name="lblHumidity" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="100" Canvas.Top="114"/>
-                <Label x:Name="lblCompas" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="280" Canvas.Top="10"/>
-                <Label x:Name="lblLatitude" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="280" Canvas.Top="36"/>
-                <Label x:Name="lblLongtitude" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="280" Canvas.Top="62"/>
-                <Label x:Name="lblExternalTemp" Content="--------" HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="26" VerticalContentAlignment="Center" FontSize="10" FontWeight="Bold" Canvas.Left="280" Canvas.Top="88"/>
-                <Label Content="Rüzgar Hızı" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" BorderBrush="Black" BorderThickness="0" Canvas.Top="10" Canvas.Left="10"/>
-                <Label Content="Rüzgar Yönü" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="10" Canvas.Top="36"/>
-                <Label Content="Hava Sıcaklığı" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="10" Canvas.Top="62"/>
-                <Label Content="Basınç" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="10" Canvas.Top="88"/>
-                <Label Content="Nem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="10" Canvas.Top="114"/>
-                <Label Content="Pusula" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="190" Canvas.Top="10"/>
-                <Label Content="Enlem" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="190" Canvas.Top="36"/>
-                <Label Content="Boylam" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Left="190" Canvas.Top="62"/>
-                <Label Content="Harici Sıcaklık" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Height="26" HorizontalContentAlignment="Right" Canvas.Top="88" Canvas.Left="190" VerticalContentAlignment="Center"/>
-            </Canvas>
+        Title="MAWS 6056 HCGPS" Height="440" Width="700" MinHeight="400" MinWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="txtTargetIp" Text="192.168.1.22" MaxLines="1" VerticalContentAlignment="Center" Width="100" Margin="10 10 5 10"/>
+            <TextBox x:Name="txtTargetPort" Text="1234" MaxLines="1" VerticalContentAlignment="Center"  Width="40" Margin="5 10 5 10"/>
+            <Button x:Name="btnConnect" Content="Bağlan"  Click="btnConnect_Click"  Width="70" Margin="5 10 5 10" />
+        </StackPanel>
+
+
+        <GroupBox Header="Sensör Bilgileri" Grid.Row="1" Grid.RowSpan="2" Margin="10" Padding="0 10">
+            <Grid MaxHeight="400" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="0">
+                    <Label Content="Enlem"/>
+                    <Label x:Name="lblLatitude" Content="--------" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="1">
+                    <Label Content="Boylam"/>
+                    <Label x:Name="lblLongtitude" Content="--------" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="2">
+                    <Label Content="Pusula"/>
+                    <Label x:Name="lblCompas" Content="--------" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="3">
+                    <Label Content="Rüzgar Yönü"/>
+                    <Label x:Name="lblWindDirection" Content="--------" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="4">
+                    <Label Content="Rüzgar Hızı"/>
+                    <Label x:Name="lblWindSpeed" Content="--------" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="5">
+                    <Label Content="Hava Sıcaklığı"/>
+                    <Label x:Name="lblAirTemperature" Content="--------" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="6">
+                    <Label Content="Basınç"/>
+                    <Label x:Name="lblBarometricPressure" Content="--------" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="7">
+                    <Label Content="Nem"/>
+                    <Label x:Name="lblHumidity" Content="--------" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="8">
+                    <Label Content="Harici Sıcaklık"/>
+                    <Label x:Name="lblExternalTemp" Content="--------" />
+                </StackPanel>
+            </Grid>
         </GroupBox>
-        <ScrollViewer x:Name="logScroll" Height="147" Canvas.Top="219" Width="382" CanContentScroll="True" Canvas.Left="10">
-            <TextBlock x:Name="txtLogs" TextWrapping="Wrap" Width="369" Background="#FFF6F6F6" />
+
+        <TextBlock Text="-2021- Bülent YİĞİT adına geliştirilmiştir." Grid.Row="3"  FontFamily="Times New Roman" FontSize="11" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Column="1" Grid.RowSpan="2">
+            <Canvas Width="250" Height="250">
+                <!-- Comp Back-->
+                <Ellipse Height="220" Width="220" StrokeThickness="2" Margin="15">
+                    <Ellipse.Fill>
+                        <RadialGradientBrush>
+                            <GradientStop Color="White" Offset="0.015"/>
+                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="#FE1630A4" Offset="0.02"/>
+                            <GradientStop Color="#FE4C84E6" Offset="0.995"/>
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <!-- Comp lines-->
+                <Rectangle Height="210" Width="2" Margin="124,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" RadiusY="1" RadiusX="1">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Offset="0.9"/>
+                            <GradientStop Color="#CCFFFFFF" Offset="1"/>
+                            <GradientStop Color="#CCFFFFFF" Offset="0"/>
+                            <GradientStop Color="Transparent" Offset="0.1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Rectangle Height="210" Width="2" Margin="124,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" RadiusY="1" RadiusX="1">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Offset="0.9"/>
+                            <GradientStop Color="#CCFFFFFF" Offset="1"/>
+                            <GradientStop Color="#CCFFFFFF" Offset="0"/>
+                            <GradientStop Color="Transparent" Offset="0.1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="45
+                                             "/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Rectangle Height="210" Width="2" Margin="124,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" RadiusY="1" RadiusX="1">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Offset="0.9"/>
+                            <GradientStop Color="#CCFFFFFF" Offset="1"/>
+                            <GradientStop Color="#CCFFFFFF" Offset="0"/>
+                            <GradientStop Color="Transparent" Offset="0.1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Rectangle Height="210" Width="2" Margin="124,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" RadiusY="1" RadiusX="1">
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Offset="0.9"/>
+                            <GradientStop Color="#CCFFFFFF" Offset="1"/>
+                            <GradientStop Color="#CCFFFFFF" Offset="0"/>
+                            <GradientStop Color="Transparent" Offset="0.1"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="135"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+
+
+
+
+
+                <!-- Wind Needle-->
+                <Rectangle Height="100" Width="4" Margin="123,26,0,0" RenderTransformOrigin="0.5,1" VerticalAlignment="Center" RadiusY="5" RadiusX="5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform x:Name="windAngle" Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FEFFD136"/>
+                            <GradientStop Color="#02FFD136" Offset="0.85
+                                          "/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <!-- Comp Needle-->
+                <Rectangle Height="100" Width="4" Margin="123,26,0,0" RenderTransformOrigin="0.5,1" VerticalAlignment="Center" RadiusY="5" RadiusX="5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform x:Name="compasAngle" Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Offset="1" Color="#33FFFFFF"/>
+                            <GradientStop Color="#FEFFFFFF"/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>            
+
+
+
+                <TextBlock Text="N" Canvas.Left="120" FontWeight="Bold"/>
+                <TextBlock Text="E" Canvas.Left="240" Canvas.Top="120" FontWeight="Bold"/>
+                <TextBlock Text="S" Canvas.Left="120" Canvas.Top="235" FontWeight="Bold"/>
+                <TextBlock Text="W" Canvas.Left="0" Canvas.Top="120" FontWeight="Bold"/>
+            </Canvas>
+        </StackPanel>
+
+        <ScrollViewer x:Name="logScroll" Margin="0 0 10 14" CanContentScroll="True" Grid.Row="2" Grid.RowSpan="2" Grid.Column="2">
+            <TextBlock x:Name="txtLogs" TextWrapping="Wrap" Background="#FFF6F6F6" FontSize="11" />
         </ScrollViewer>
-        <Button x:Name="btnConnect" Content="Bağlan" HorizontalAlignment="Left" VerticalAlignment="Top" Width="74" Height="24" Click="btnConnect_Click" Canvas.Left="310" Canvas.Top="180"/>
-        <TextBox x:Name="txtTargetIp" HorizontalAlignment="Left" Height="24" Width="100" Text="192.168.1.22" TextAlignment="Left" Canvas.Left="153" Canvas.Top="180" VerticalAlignment="Top" MaxLines="1" VerticalContentAlignment="Center" Margin="0"/>
-        <TextBox x:Name="txtTargetPort" HorizontalAlignment="Left" Height="24" Width="47" Text="1234" TextAlignment="Left" Canvas.Left="258" Canvas.Top="180" VerticalAlignment="Top" VerticalContentAlignment="Center" MaxLines="1"/>
-    </Canvas>
+
+    </Grid>
+
+
+
+
 </Window>
