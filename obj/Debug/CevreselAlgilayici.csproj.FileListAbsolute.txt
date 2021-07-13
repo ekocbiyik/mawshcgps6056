@@ -27,3 +27,4 @@ C:\Users\Dogan\Desktop\mawshcgps6056-main\obj\Debug\CevreselAlgilayici.csproj.Ge
 C:\Users\Dogan\Desktop\mawshcgps6056-main\obj\Debug\CevreselAlgilayici.csproj.CoreCompileInputs.cache
 C:\Users\Dogan\Desktop\mawshcgps6056-main\obj\Debug\CevreselAlgilayici.exe
 C:\Users\Dogan\Desktop\mawshcgps6056-main\obj\Debug\CevreselAlgilayici.pdb
+D:\Workspace\CevreselAlgilayici\obj\Debug\CevreselAlgilayici.csprojAssemblyReference.cache
