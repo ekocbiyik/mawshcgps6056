@@ -113,14 +113,24 @@ namespace CevreselAlgilayici
                     this.Dispatcher.Invoke(() =>
                     {
                         lblWindSpeed.Content = infoMap[lblWindSpeed.Name];
-                        lblWindDirection.Content = infoMap[lblWindDirection.Name];
+                        //lblWindDirection.Content = infoMap[lblWindDirection.Name];
                         lblAirTemperature.Content = infoMap[lblAirTemperature.Name];
                         lblBarometricPressure.Content = infoMap[lblBarometricPressure.Name];
                         lblHumidity.Content = infoMap[lblHumidity.Name];
-                        lblCompas.Content = infoMap[lblCompas.Name];
+                        //lblCompas.Content = infoMap[lblCompas.Name];
                         lblLatitude.Content = infoMap[lblLatitude.Name];
                         lblLongtitude.Content = infoMap[lblLongtitude.Name];
                         lblExternalTemp.Content = infoMap[lblExternalTemp.Name];
+
+                        var compDir = infoMap[lblCompas.Name];
+                        compasAngle.Angle = Convert.ToDouble(compDir);
+                        lblCompas.Content = compDir;
+
+                        var windDir = infoMap[lblWindDirection.Name];
+                        lblWindDirection.Content = infoMap[lblWindDirection.Name];
+                        windAngle.Angle = (Convert.ToDouble(compDir) + Convert.ToDouble(windDir)) % 360;
+
+
                         isEnable = btnConnect.IsEnabled;
                     });
                 }
