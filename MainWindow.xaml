@@ -39,39 +39,39 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="0">
-                    <Label Content="Enlem"/>
+                    <Label Content="Enlem" Width="120"/>
                     <Label x:Name="lblLatitude" Content="--------" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="1">
-                    <Label Content="Boylam"/>
+                    <Label Content="Boylam" Width="120"/>
                     <Label x:Name="lblLongtitude" Content="--------" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="2">
-                    <Label Content="Pusula"/>
+                    <Label Content="Pusula" Width="120"/>
                     <Label x:Name="lblCompas" Content="--------" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="3">
-                    <Label Content="Rüzgar Yönü"/>
+                    <Label Content="Rüzgar Yönü" Width="120"/>
                     <Label x:Name="lblWindDirection" Content="--------" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="4">
-                    <Label Content="Rüzgar Hızı"/>
+                    <Label Content="Rüzgar Hızı" Width="120"/>
                     <Label x:Name="lblWindSpeed" Content="--------" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="5">
-                    <Label Content="Hava Sıcaklığı"/>
+                    <Label Content="Hava Sıcaklığı" Width="120"/>
                     <Label x:Name="lblAirTemperature" Content="--------" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="6">
-                    <Label Content="Basınç"/>
+                    <Label Content="Basınç" Width="120"/>
                     <Label x:Name="lblBarometricPressure" Content="--------" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="7">
-                    <Label Content="Nem"/>
+                    <Label Content="Nem" Width="120"/>
                     <Label x:Name="lblHumidity" Content="--------" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10 0" Grid.Row="8">
-                    <Label Content="Harici Sıcaklık"/>
+                    <Label Content="Harici Sıcaklık" Width="120"/>
                     <Label x:Name="lblExternalTemp" Content="--------" />
                 </StackPanel>
             </Grid>
